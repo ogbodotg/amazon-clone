@@ -2,6 +2,12 @@
 
 A simple Amazon ecommerce clone app built with Flutter, NodeJS, Express and MongoDB.
 
+## Screenshots
+https://github.com/ogbodotg/amazon-clone/blob/master/Screenshot%202023-02-15%20at%201.46.48%20PM.png
+https://github.com/ogbodotg/amazon-clone/blob/master/Screenshot%202023-02-15%20at%201.47.49%20PM.png
+https://github.com/ogbodotg/amazon-clone/blob/master/Screenshot%202023-02-15%20at%201.38.44%20PM.png
+https://github.com/ogbodotg/amazon-clone/blob/master/Screenshot%202023-02-15%20at%201.39.29%20PM.png
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
