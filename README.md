@@ -1,6 +1,6 @@
 # amazon_clone
 
-A new Flutter project.
+A simple Amazon ecommerce clone app built with Flutter, NodeJS, Express and MongoDB.
 
 ## Getting Started
 
