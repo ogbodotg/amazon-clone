@@ -1,5 +1,7 @@
 import 'package:amazon_clone/constants/globals.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 
 class Services {
   static Widget sizedBox({double? h, double? w}) {
@@ -9,6 +11,21 @@ class Services {
     );
   }
 
+  // formated Price
+  String formatPrice({context, price}) {
+    var f = NumberFormat('#,##,##,###,##0');
+    // var f = NumberFormat("#,##0");
+    Locale locale = Localizations.localeOf(context);
+    // var format =
+    //     NumberFormat.simpleCurrency(locale: Platform.localeName, name: '₦');
+    String formatedPrice = f.format(price);
+    String newPrice = 'NGN $formatedPrice';
+    // String newPrice = '${format.currencySymbol}$formatedPrice';
+
+    return newPrice;
+  }
+
+// custom App Bar
   static PreferredSize CustomAppBar() {
     return PreferredSize(
       preferredSize: const Size.fromHeight(50),

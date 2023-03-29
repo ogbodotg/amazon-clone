@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:amazon_clone/services/services.dart';
 import 'package:amazon_clone/widgets/star_ratings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -15,6 +16,16 @@ class SearchedProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Services _services = Services();
+    double totalRating = 0.0;
+    double averageRating = 0.0;
+
+    for (int i = 0; i < product.rating!.length; i++) {
+      totalRating += product.rating![i].rating!;
+    }
+    if (totalRating != 0) {
+      averageRating = totalRating / product.rating!.length;
+    }
     return Column(
       children: [
         Container(
@@ -54,13 +65,14 @@ class SearchedProduct extends StatelessWidget {
                     Container(
                       width: 235,
                       padding: const EdgeInsets.only(left: 10, top: 5),
-                      child: const Stars(rating: 5),
+                      child: Stars(rating: averageRating),
                     ),
                     Container(
                       width: 235,
                       padding: const EdgeInsets.only(left: 10, top: 5),
                       child: Text(
-                        'NGN${product.price}',
+                        _services.formatPrice(
+                            context: context, price: product.price),
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

@@ -14,12 +14,14 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Services.CustomAppBar(),
-      body: Column(
-        children: [
-          TopArea(),
-          Services.sizedBox(h: 10),
-          Orders(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            TopArea(),
+            Services.sizedBox(h: 10),
+            Orders(),
+          ],
+        ),
       ),
     );
   }

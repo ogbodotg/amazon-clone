@@ -29,7 +29,7 @@ class AddressBar extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 5),
               child: Text(
-                'Delivery to ${user.address}',
+                'Address: ${user.address}',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                 ),
@@ -40,7 +40,7 @@ class AddressBar extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(left: 5, top: 2),
             child: Icon(Icons.arrow_drop_down_outlined, size: 18),
-          )
+          ),
         ],
       ),
     );

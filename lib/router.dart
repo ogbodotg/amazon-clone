@@ -1,7 +1,10 @@
+import 'package:amazon_clone/account/delivery_address.dart';
 import 'package:amazon_clone/admin/product_screen.dart';
 import 'package:amazon_clone/admin/products/add_product_screen.dart';
 import 'package:amazon_clone/auth/pages/auth_screen.dart';
+import 'package:amazon_clone/models/orders.dart';
 import 'package:amazon_clone/models/product_model.dart';
+import 'package:amazon_clone/orders/order_details.dart';
 import 'package:amazon_clone/pages/cat_deals_screen.dart';
 import 'package:amazon_clone/pages/home_screen.dart';
 import 'package:amazon_clone/common/widgets/nav_bar.dart';
@@ -54,6 +57,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           searchQuery: searchQuery,
         ),
       );
+    case AddressPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddressPage(),
+      );
     case ProductDetails.routeName:
       var product = routeSettings.arguments as Product;
 
@@ -61,6 +69,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => ProductDetails(
           product: product,
+        ),
+      );
+    case OrderDetailsScreen.routeName:
+      var order = routeSettings.arguments as Order;
+
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrderDetailsScreen(
+          order: order,
         ),
       );
 

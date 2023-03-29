@@ -3,7 +3,7 @@ import 'package:amazon_clone/admin/admin_screen.dart';
 import 'package:amazon_clone/admin/product_screen.dart';
 import 'package:amazon_clone/pages/home_screen.dart';
 import 'package:amazon_clone/constants/globals.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 
 class AdminNavBar extends StatefulWidget {
@@ -78,8 +78,8 @@ class _AdminNavBarState extends State<AdminNavBar> {
                   ),
                 ),
               ),
-              child: Badge(
-                  badgeStyle: BadgeStyle(
+              child: badges.Badge(
+                  badgeStyle: badges.BadgeStyle(
                     elevation: 0,
                     badgeColor: Theme.of(context).primaryColor,
                   ),

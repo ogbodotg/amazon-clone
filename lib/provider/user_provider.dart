@@ -14,6 +14,7 @@ class UserProvider extends ChangeNotifier {
     type: '',
     isAdmin: false,
     token: '',
+    cart: [],
   );
 
   User get user => _user;
@@ -25,5 +26,10 @@ class UserProvider extends ChangeNotifier {
 
   setToken() async {
     final prefs = await SharedPreferences.getInstance();
+  }
+
+  void setUserFromModel(User user) {
+    _user = user;
+    notifyListeners();
   }
 }

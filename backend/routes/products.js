@@ -1,6 +1,6 @@
 const express = require('express');
 const authMiddleware = require('../middlewares/auth');
-const Product = require('../models/product');
+const {Product} = require('../models/product');
 var Double = require("mongodb").Double;
 
 
@@ -66,5 +66,30 @@ productRouter.post('/api/product/rate', authMiddleware, async (req, res) => {
     }
 });
 
+// deal of the day calculated by the number of product ratings
+productRouter.get("/api/top-deal", authMiddleware, async (req, res) => {
+    try {
+        let products = await Product.find({});
+
+        products = products.sort((a, b) => {
+            let aTotal = 0;
+            let bTotal = 0;
+            for (let i = 0; i < a.ratings.length; i++) {
+                aTotal = a.ratings[i].rating;
+            }
+
+            for (let i = 0; i < b.ratings.length; i++) {
+                bTotal = b.ratings[i].rating;
+            }
+
+            return aTotal < bTotal ? 1 : -1;
+
+        });
+        res.json(products[0]);
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 module.exports = productRouter;

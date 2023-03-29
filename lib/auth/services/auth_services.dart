@@ -32,6 +32,7 @@ class AuthServices {
         type: '',
         isAdmin: false,
         token: '',
+        cart: [],
       );
       var url = Uri.http(
         Config.apiURL,

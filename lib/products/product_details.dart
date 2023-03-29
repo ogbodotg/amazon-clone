@@ -34,10 +34,10 @@ class _ProductDetailsState extends State<ProductDetails> {
   void initState() {
     double totalRating = 0.0;
     for (int i = 0; i < widget.product.rating!.length; i++) {
-      totalRating += widget.product.rating![i].rating!.toDouble();
+      totalRating += widget.product.rating![i].rating!;
       if (widget.product.rating![i].userId ==
           Provider.of<UserProvider>(context, listen: false).user.id) {
-        myRating = widget.product.rating![i].rating!.toDouble();
+        myRating = widget.product.rating![i].rating!;
       }
     }
     if (totalRating != 0) {
@@ -46,10 +46,27 @@ class _ProductDetailsState extends State<ProductDetails> {
     super.initState();
   }
 
+  void addToCart() {
+    _productDetailServices.addProductToCart(
+        context: context, product: widget.product);
+  }
+
   @override
   Widget build(BuildContext context) {
+    Services _services = Services();
     return Scaffold(
       appBar: Services.CustomAppBar(),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: CustomFlatButton(
+          label: 'Add to cart',
+          onPressed: () {
+            // add product to cart
+            addToCart();
+          },
+          color: Colors.green,
+        ),
+      ),
       body: SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +113,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                   children: [
                     TextSpan(
-                      text: 'NGN${widget.product.price}',
+                      text: _services.formatPrice(
+                          context: context, price: widget.product.price),
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
@@ -110,22 +128,8 @@ class _ProductDetailsState extends State<ProductDetails> {
             padding: const EdgeInsets.all(8.0),
             child: Text(widget.product.productDescription),
           ),
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: CustomFlatButton(
-              label: 'Buy Now',
-              onPressed: () {},
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: CustomFlatButton(
-              label: 'Add to cart',
-              onPressed: () {},
-              color: Colors.green,
-            ),
-          ),
+          // const Divider(),
+
           const Divider(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),

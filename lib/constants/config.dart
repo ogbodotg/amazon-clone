@@ -10,4 +10,10 @@ class Config {
   static const products = "/api/products";
   static const searchProducts = "/api/products/search";
   static const productRating = "/api/product/rate";
+  static const dealOfTheDay = "/api/top-deal";
+  static const addToCart = "/api/add-to-cart";
+  static const removeFromCart = "/api/remove-from-cart";
+  static const saveDeliveryAddress = "/api/save-delivery-address";
+  static const placeOrder = "/api/place-order";
+  static const userOrders = "/api/orders/me";
 }
