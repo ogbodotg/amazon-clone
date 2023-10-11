@@ -43,6 +43,7 @@ dependencies:
   cloudinary_public: ^0.20.0
   flutter_rating_bar: ^4.0.1
   intl: ^0.18.0
+  charts_flutter:
 
 dev_dependencies:
   flutter_test:

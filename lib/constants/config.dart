@@ -16,4 +16,7 @@ class Config {
   static const saveDeliveryAddress = "/api/save-delivery-address";
   static const placeOrder = "/api/place-order";
   static const userOrders = "/api/orders/me";
+  static const getAllOrders = "/admin/get-orders";
+  static const updateOrdersStatus = "/admin/update-order-status";
+  static const getSalesAnalytics = "/admin/get-total-sales";
 }

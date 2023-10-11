@@ -1,6 +1,8 @@
 import 'package:amazon_clone/account/account_screen.dart';
 import 'package:amazon_clone/admin/admin_screen.dart';
+import 'package:amazon_clone/admin/order_screen.dart';
 import 'package:amazon_clone/admin/product_screen.dart';
+import 'package:amazon_clone/admin/sales_analytics.dart';
 import 'package:amazon_clone/pages/home_screen.dart';
 import 'package:amazon_clone/constants/globals.dart';
 import 'package:badges/badges.dart' as badges;
@@ -27,12 +29,8 @@ class _AdminNavBarState extends State<AdminNavBar> {
 
   List<Widget> pages = [
     const Products(),
-    const Center(
-      child: Text('Analytics'),
-    ),
-    const Center(
-      child: Text('Orders'),
-    ),
+    const SalesAnalytics(),
+    const AdminOrderScreen()
   ];
 
   @override
